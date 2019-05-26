@@ -1,0 +1,31 @@
+{
+	"auth": {
+		"photoalbumsd02dbcb4": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"api": {
+		"photoAlbums": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "AMAZON_COGNITO_USER_POOLS"
+			}
+		}
+	},
+	"storage": {
+		"photoAlbumStorage": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"function": {
+		"workshopphotoprocessor": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": []
+		}
+	}
+}
